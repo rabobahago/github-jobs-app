@@ -20,7 +20,7 @@ const reducer = (state, action) => {
         loading: false,
         jobs: action.payload.jobs,
       }
-    case ACTIONS.ERROR:
+    case ACTIONS.ERROR: 
       return {
         ...state,
         loading: false,

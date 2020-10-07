@@ -11,7 +11,7 @@ function App() {
   return (
     <Container className="my-4">
       <h1 className="mb-4">Github Jobs</h1>
-      <JobPagination page={page} setPage={setPage} />
+      <JobPagination page={page} setPage={setPage} hasNextPage={true} />
       {loading && <h1>loading....</h1>}
       {error && <h1> error, Try refreshing</h1>}
       <h1>
@@ -19,7 +19,7 @@ function App() {
           return <Job key={job.id} job={job} />
         })}
       </h1>
-      <JobPagination page={page} setPage={setPage} />
+      <JobPagination page={page} setPage={setPage} hasNextPage={true} />
     </Container>
   )
 }

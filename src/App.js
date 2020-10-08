@@ -7,11 +7,11 @@ import JobPagination from './JobPagination'
 function App() {
   const [params, setParams] = useState({})
   const [page, setPage] = useState(1)
-  const { jobs, loading, error } = useFetchJobs(params, page)
+  const { jobs, loading, error, hasNextPage } = useFetchJobs(params, page)
   return (
     <Container className="my-4">
       <h1 className="mb-4">Github Jobs</h1>
-      <JobPagination page={page} setPage={setPage} hasNextPage={true} />
+      <JobPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
       {loading && <h1>loading....</h1>}
       {error && <h1> error, Try refreshing</h1>}
       <h1>
@@ -19,7 +19,7 @@ function App() {
           return <Job key={job.id} job={job} />
         })}
       </h1>
-      <JobPagination page={page} setPage={setPage} hasNextPage={true} />
+      <JobPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
     </Container>
   )
 }
